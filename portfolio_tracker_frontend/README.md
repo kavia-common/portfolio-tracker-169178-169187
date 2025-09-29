@@ -1,82 +1,40 @@
-# Lightweight React Template for KAVIA
+# Portfolio Tracker Frontend (Ocean Professional)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Modern React frontend for an investment portfolio tracker. Uses a minimalist "Ocean Professional" theme with blue and amber accents, subtle shadows, rounded corners, and responsive layout.
 
 ## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Sidebar navigation (Dashboard, Portfolios, Transactions)
+- Dashboard with summary KPI cards and analytics charts (allocation pie, performance line)
+- Portfolio list and detailed portfolio view
+- Asset table and transaction history table
+- REST API integration via a client with mock fallback
+- Lightweight CSS, modern React with hooks
 
 ## Getting Started
+- Install: npm install
+- Start with mocks: npm run start:mock
+- Start against a backend: 
+  - Set REACT_APP_API_BASE_URL in .env
+  - Set REACT_APP_USE_MOCKS=false
+  - Run npm start
 
-In the project directory, you can run:
+## Environment
+Copy .env.example to .env and adjust values:
+- REACT_APP_API_BASE_URL=http://localhost:8000
+- REACT_APP_USE_MOCKS=true
 
-### `npm start`
+## API Client
+If REACT_APP_USE_MOCKS=true, the app serves data from an in-memory mock dataset. Otherwise it fetches from:
+- GET /api/portfolios
+- GET /api/portfolios/:id
+- GET /api/transactions?portfolioId=...
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Styling
+Theme variables live in src/App.css. 
+- Primary: #2563EB
+- Secondary/Amber: #F59E0B
+- Text: #111827
+- Background: #f9fafb
+- Surface: #ffffff
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to extend components in src/components and pages in src/pages.
